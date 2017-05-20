@@ -1,5 +1,5 @@
 
-public class NaveEnemiga {
+public class NaveEnemiga extends Roca{
 
 	public NaveEnemiga() {
 	}
