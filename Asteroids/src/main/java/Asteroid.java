@@ -4,6 +4,7 @@ import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
 
+
 public class Asteroid extends Applet implements Runnable{
 	Image imgNave;
 	Image imgfondo;
@@ -34,8 +35,9 @@ public class Asteroid extends Applet implements Runnable{
     	noseve.fillRect(0, 0, Fondo.WDIMENSION, Fondo.HDIMENSION);
     	
     	fondo.dibujar(noseve, this);
-    	g.drawImage(noParpadeo, 0, 0, this);
-    	nave.dibujar(g, this);
+		
+		g.drawImage(noParpadeo, 0, 0, this);
+		nave.dibujar(g, this);
 	}
 	public void update(Graphics g){
 		paint(g);
@@ -68,7 +70,20 @@ public class Asteroid extends Applet implements Runnable{
     	}
     	return true;
     }	 
+	 public boolean mouseDown(Event ev, int x, int y){
+	    	
+	    		if(nave.contains(x, y)){
+	    			System.out.println("hola");
+	    			System.out.println(x);
+	    			System.out.println(y);
+	    		}
+	    		else
+	    			System.out.println("adios");
+	    		System.out.println(x);
+    			System.out.println(y);
 	 
+	    	return true;
+	    } 
 	 
 	 
 	 
