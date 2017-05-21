@@ -10,37 +10,32 @@ public class Nave extends Rectangle {
 	public static final int ALTO=80;
 	private Image imagen;
 	private boolean viva=true;
-    double theta=0;
-    private int g2x=Fondo.WDIMENSION/2;
-    private int g2y=Fondo.HDIMENSION/2;
+    private double theta=0;
 	
 	public Nave(Image img) {
-		super(-ANCHO/2,(-ALTO/2)-6,ANCHO,ALTO);
+		super(Fondo.WDIMENSION/2,Fondo.HDIMENSION/2,ANCHO,ALTO);
 		imagen=img;
 	}
 
 	public void dibujar(Graphics g, Applet a){
+		
 		Graphics2D g2 = (Graphics2D)g;
-		g2.setColor(Color.white);
-		    
-		g2.translate(g2x, g2y);
+		g2.translate(x+ANCHO/2, y+ALTO/2);//traslada el graphics a el centro de la nave
 		g2.rotate(theta);
-		g2.fillRect(-100, -100, 200, 200);
-		//g2.setColor(Color.MAGENTA);
-		    
-		g2.drawImage(imagen, x, y, a);
-		//g2.drawLine(0, 0, 200, 0);
+		g2.setColor(Color.MAGENTA);
+		g2.drawImage(imagen, -ANCHO/2, -ALTO/2,ANCHO,ALTO, a);//pinta el centro de la imagen en el 0,0 del graphics 
 
-		//theta+=10;
+		g2.drawLine(0, 0, 200, 0);		
+
 	}
 
 	public void avanzar(){
-		g2x+=10*Math.cos((theta));
-		g2y+=10*Math.sin((theta));
-		System.out.println(theta);
-		System.out.println(g2x);
-		System.out.println(g2y);
-		System.out.println();
+		x+=10*Math.cos((theta));
+		y+=10*Math.sin((theta));
+//		System.out.println(theta);
+//		System.out.println(g2x);
+//		System.out.println(g2y);
+//		System.out.println();
 	}
 
 	public void girar(boolean sentido){
