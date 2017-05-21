@@ -6,29 +6,50 @@ import java.awt.Image;
 import java.awt.Rectangle;
 
 public class Nave extends Rectangle {
-	public static final int WDIMENSION=50;
-	public static final int HDIMENSION=80;
+	public static final int ANCHO=50;
+	public static final int ALTO=80;
 	private Image imagen;
-	private int posx;
-	private int posy;
 	private boolean viva=true;
+    double theta=0;
+    private int g2x=Fondo.WDIMENSION/2;
+    private int g2y=Fondo.HDIMENSION/2;
 	
-	public Nave(int posx, int posy, Image img) {
-		super(posx,posy,WDIMENSION,HDIMENSION);
+	public Nave(Image img) {
+		super(-ANCHO/2,(-ALTO/2)-6,ANCHO,ALTO);
 		imagen=img;
-		this.posx=posx;
-		this.posy=posy;
 	}
+
 	public void dibujar(Graphics g, Applet a){
-		if(viva)
-			g.drawImage(imagen, posx, posy, width,height,a);
-		else
-			g.drawImage(imagen, posx, posy, width,height,a);
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setColor(Color.white);
+		    
+		g2.translate(g2x, g2y);
+		g2.rotate(theta);
+		g2.fillRect(-100, -100, 200, 200);
+		//g2.setColor(Color.MAGENTA);
+		    
+		g2.drawImage(imagen, x, y, a);
+		//g2.drawLine(0, 0, 200, 0);
+
+		//theta+=10;
 	}
 
 	public void avanzar(){
-		posx+=10;
+		g2x+=10*Math.cos((theta));
+		g2y+=10*Math.sin((theta));
+		System.out.println(theta);
+		System.out.println(g2x);
+		System.out.println(g2y);
+		System.out.println();
 	}
+
+	public void girar(boolean sentido){
+		if(sentido)//sentido true giro izquierda
+			theta-=(Math.PI/18);
+		else
+			theta+=(Math.PI/18);
+	}
+	
 	public boolean isViva() {
 		return viva;
 	}
