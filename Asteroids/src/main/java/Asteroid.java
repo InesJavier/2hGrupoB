@@ -1,5 +1,6 @@
 import java.applet.Applet;
 import java.awt.Color;
+import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -12,8 +13,6 @@ public class Asteroid extends Applet implements Runnable{
 	Image noParpadeo;
 	Graphics noseve;
 	Thread animacion;
-
-
 	
 	
 	public void init(){
@@ -51,7 +50,24 @@ public class Asteroid extends Applet implements Runnable{
 			repaint();
 		}
 	}
-	
+	public boolean keyDown(Event ev, int tecla){
+    	if(tecla == 1006){	//flecha izquierda
+    		nave.girar(true);
+    		repaint();
+    	}
+    	
+    	if(tecla == 1007){	//flecha derecha
+    		nave.girar(false);
+    		repaint();
+    	}
+    	if(tecla == 1004){	//flecha arriba
+    		nave.avanzar();
+    		repaint();
+    	}
+    	if(tecla == 32){	//espacio
+    	}
+    	return true;
+    }	 
 	 
 	 
 	 
