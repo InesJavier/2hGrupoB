@@ -3,27 +3,35 @@ import java.awt.Color;
 import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Asteroid extends Applet implements Runnable{
 	Image imgNave;
 	Image imgfondo;
+	Image bala;
 	Nave nave;
 	Fondo fondo;
 	
 	Image noParpadeo;
 	Graphics noseve;
 	Thread animacion;
+	List<Disparo> disparos;
 	
 	
 	public void init(){
 		imgNave=getImage(getDocumentBase(),"nave/0.png");
 		imgfondo=getImage(getDocumentBase(),"fondo/0.png"); 
+		disparos=new ArrayList<Disparo>();
 		noParpadeo = createImage(Fondo.WDIMENSION, Fondo.HDIMENSION);
 		noseve = noParpadeo.getGraphics();
 		
 		fondo=new Fondo(imgfondo);
 		nave=new Nave(imgNave);
+		bala = getImage(getDocumentBase(), "disparos/0.png");
+		for(int i=0; i<0;i++){
+			disparos.add(new Disparo(bala, nave.y+30));
+		}
 		
 	}
 	public void start(){
@@ -35,9 +43,14 @@ public class Asteroid extends Applet implements Runnable{
     	noseve.fillRect(0, 0, Fondo.WDIMENSION, Fondo.HDIMENSION);
     	
     	fondo.dibujar(noseve, this);
+    	
 		
 		g.drawImage(noParpadeo, 0, 0, this);
 		nave.dibujar(g, this);
+    	for(int i=0; i<disparos.size();i++)
+    		disparos.get(i).dibujar(noseve, this);
+		
+		
 	}
 	public void update(Graphics g){
 		paint(g);
@@ -67,6 +80,8 @@ public class Asteroid extends Applet implements Runnable{
     		repaint();
     	}
     	if(tecla == 32){	//espacio
+    		disparos.add(new Disparo(bala, nave.y+30));
+			repaint();
     	}
     	return true;
     }	 
