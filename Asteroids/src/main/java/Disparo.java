@@ -21,5 +21,4 @@ public class Disparo extends Rectangle{
 		x+=25*Math.cos((theta));
 		y+=25*Math.sin((theta));
 	}
-	
 }
