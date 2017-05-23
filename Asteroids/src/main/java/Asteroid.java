@@ -14,12 +14,10 @@ public class Asteroid extends Applet implements Runnable{
 	Nave nave;
 	Fondo fondo;
 	List<Disparo>disparos;
-
 	
 	Image noParpadeo;
 	Graphics noseve;
 	Thread animacion;
-	List<Disparo> disparos;
 	
 	public void init(){
 		imgNave=getImage(getDocumentBase(),"nave/0.png");
