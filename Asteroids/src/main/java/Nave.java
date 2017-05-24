@@ -24,10 +24,19 @@ public class Nave extends Rectangle {
 		g2.setColor(Color.MAGENTA);
 		
 		g2.drawImage(imagen, -ANCHO/2, -ALTO/2,ANCHO,ALTO, a);//pinta el centro de la imagen en el 0,0 del graphics 
-		g2.drawLine(0, 0, 200, 0);		
+		//g2.drawLine(0, 0, 200, 0);		
 	}
 
 	public void avanzar(){
+		if(x>Fondo.WDIMENSION)
+			x=0;
+		if(x<0)
+			x=Fondo.WDIMENSION;
+		if(y>Fondo.HDIMENSION)
+			y=0;
+		if(y<0)
+			y=Fondo.HDIMENSION;;
+		
 		x+=10*Math.cos((theta));
 		y+=10*Math.sin((theta));
 	}
