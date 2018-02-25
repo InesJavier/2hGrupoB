@@ -29,13 +29,13 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-  <record model="ir.actions.act_window" id="cine.action_director">
+    <record model="ir.actions.act_window" id="cine.action_director">
       <field name="name">Director</field>
       <field name="res_model">cine.director</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-  <record model="ir.actions.act_window" id="cine.action_pelicula">
+    <record model="ir.actions.act_window" id="cine.action_pelicula">
       <field name="name">Pelicula</field>
       <field name="res_model">cine.pelicula</field>
       <field name="view_mode">tree,form</field>
@@ -72,7 +72,7 @@
               action="cine.action_actor"/>
     <menuitem name="Director" id="cine.menu_director" parent="cine.menu"
               action="cine.action_director"/>
-    <menuitem name="Director" id="cine.menu_pelicula" parent="cine.menu"
+    <menuitem name="Pelicula" id="cine.menu_pelicula" parent="cine.menu"
               action="cine.action_pelicula"/>
     <menuitem name="Pais" id="cine.menu_pais" parent="cine.menu"
               action="cine.action_pais"/>
