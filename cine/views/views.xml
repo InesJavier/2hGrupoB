@@ -16,13 +16,13 @@
     -->
 
     <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="cine.action_window">
-      <field name="name">cine window</field>
-      <field name="res_model">cine.cine</field>
+    
+    <record model="ir.actions.act_window" id="cine.action_actor">
+      <field name="name">Actor</field>
+      <field name="res_model">cine.actor</field>
       <field name="view_mode">tree,form</field>
     </record>
-    -->
+   
 
     <!-- server action to the one above -->
     <!--
@@ -41,20 +41,20 @@
     -->
 
     <!-- Top menu item -->
-    <!--
+    
     <menuitem name="cine" id="cine.menu_root"/>
-    -->
+   
     <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="cine.menu_1" parent="cine.menu_root"/>
-    <menuitem name="Menu 2" id="cine.menu_2" parent="cine.menu_root"/>
-    -->
+    
+    <menuitem name="Menu" id="cine.menu" parent="cine.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="cine.menu_2" parent="cine.menu_root"/> -->
+   
     <!-- actions -->
-    <!--
-    <menuitem name="List" id="cine.menu_1_list" parent="cine.menu_1"
-              action="cine.action_window"/>
-    <menuitem name="Server to list" id="cine" parent="cine.menu_2"
-              action="cine.action_server"/>
-    -->
+    
+    <menuitem name="Actor" id="cine.menu_actor" parent="cine.menu"
+              action="cine.action_actor"/>
+    <!-- <menuitem name="Server to list" id="cine" parent="cine.menu_2"
+              action="cine.action_server"/> -->
+   
   </data>
 </odoo>
