@@ -15,6 +15,19 @@
       </field>
     </record>
 
+    <!-- <record model="ir.ui.view" id="cine_form_view_actor">
+        <field name="name">cine form</field>
+        <field name="model">cine.actor</field>    
+        <field name="arch" type="xml">
+            <form string="Colegio Form">
+                <field name="name"/>
+                <field name="edad"/>
+                <field name="idpais"/>
+                <field name="idspeliculas"/>
+            </form>                
+        </field>
+    </record> -->
+
     <record model="ir.ui.view" id="actor_search_view">
       <field name="name">actor search</field>
       <field name="model">cine.actor</field>
@@ -59,6 +72,9 @@
       <field name="name">modelo</field>
       <field name="res_model">cine.modelo</field>
       <field name="view_mode">tree,form</field>
+       <field name = "help" type= "html">
+          <p class="oe_view_nocontent_create">Ya me puedes crear un registro rapidito</p>
+        </field>
     </record>
 
     <!-- Top menu item -->
