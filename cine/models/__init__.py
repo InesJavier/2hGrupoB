@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import pelicula
+from . import actor
+from . import pais
+from . import director
