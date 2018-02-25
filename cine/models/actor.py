@@ -8,3 +8,4 @@ class actor(models.Model):
     name = fields.Char()
     edad = fields.Integer()
     idpais=fields.Many2one('cine.pais',string="pais")
+    idspeliculas=fields.Many2many(string= "peliculas",comodel_name='cine.pelicula',relation = 'rel_actores_peliculas',column1='actor', column2='pelicula')
