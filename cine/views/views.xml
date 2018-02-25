@@ -14,14 +14,27 @@
         </tree>
       </field>
     </record>
-   
 
+    <record model="ir.ui.view" id="actor_search_view">
+      <field name="name">actor search</field>
+      <field name="model">cine.actor</field>
+      <field name="arch" type="xml">
+          <search>
+              <field name="name"/>
+              <field name="edad"/>
+              <field name="idpais"/>
+              <field name="idspeliculas"/>
+          </search>
+      </field>
+    </record>
+   
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="cine.action_actor">
       <field name="name">Actor</field>
       <field name="res_model">cine.actor</field>
       <field name="view_mode">tree,form</field>
+      <field name="context" eval="{'actor_search_view':2}"/>
     </record>
 
     <record model="ir.actions.act_window" id="cine.action_pais">
