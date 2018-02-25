@@ -6,6 +6,7 @@ from dateutil.relativedelta import relativedelta
 
 class director(models.Model):
     _name = 'cine.director'
+    idsPeliculas=fields.One2many('cine.pelicula','idirector',String="pelicula")
 
     fechaActual=date.today()
 

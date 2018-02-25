@@ -7,3 +7,4 @@ class pelicula(models.Model):
 
     name = fields.Char()
     description = fields.Text()
+    idirector = fields.Many2one('cine.director',String="director")
