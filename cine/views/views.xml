@@ -22,6 +22,12 @@
       <field name="res_model">cine.actor</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.actions.act_window" id="cine.action_pais">
+      <field name="name">Pais</field>
+      <field name="res_model">cine.pais</field>
+      <field name="view_mode">tree,form</field>
+    </record>
    
 
     <!-- server action to the one above -->
@@ -53,6 +59,8 @@
     
     <menuitem name="Actor" id="cine.menu_actor" parent="cine.menu"
               action="cine.action_actor"/>
+    <menuitem name="Pais" id="cine.menu_pais" parent="cine.menu"
+              action="cine.action_pais"/>
     <!-- <menuitem name="Server to list" id="cine" parent="cine.menu_2"
               action="cine.action_server"/> -->
    
