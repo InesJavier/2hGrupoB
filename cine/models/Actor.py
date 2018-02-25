@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-class cine(models.Model):
-    _name = 'cine.cine'
+class actor(models.Model):
+    _name = 'cine.actor'
 
     name = fields.Char()
     edad = fields.Integer()

@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-class Pais(models.Model):
-    _name = 'cine.actor'
+class pais(models.Model):
+    _name = 'cine.pais'
 
     name = fields.Char()
     
