@@ -16,10 +16,16 @@ class director(models.Model):
 
     description = fields.Text()
 
-    @api.depends('Fecha_Nacimiento')
+    @api.onchange('Fecha_Nacimiento')
     def _value_pc(self):
         for r in self:
             if r.Fecha_Nacimiento:
                 dt=r.Fecha_Nacimiento
                 d1 = datetime.strptime(dt, "%Y-%m-%d").date()
                 self.Edad=relativedelta(self.fechaActual,d1).years
+                return {
+                    'warning': {
+                    'title': "Edad",
+                    'message': "La Edad Ha sido actualizada",
+                    },
+                }
