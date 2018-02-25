@@ -7,3 +7,4 @@ class actor(models.Model):
 
     name = fields.Char()
     edad = fields.Integer()
+    idpais=fields.Many2one('cine.pais',string="pais")
